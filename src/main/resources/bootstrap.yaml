@@ -1,0 +1,11 @@
+org:
+  jobrunr:
+    job-scheduler:
+      enabled: false
+    background-job-server:
+      enabled: false
+    dashboard:
+      enabled: true
+
+server:
+  port: 8083
