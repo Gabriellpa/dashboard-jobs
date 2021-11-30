@@ -6,6 +6,7 @@ org:
       enabled: false
     dashboard:
       enabled: true
+      port: 8085
 
 server:
   port: 8083
