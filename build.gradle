@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.5.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "com.google.cloud.tools.jib" version "3.1.4"
 }
 
 group = 'br.com.gabriellpa'
@@ -35,4 +36,19 @@ dependencyManagement {
 
 test {
     useJUnitPlatform()
+}
+
+jib {
+    from {
+        image = "openjdk:11.0.13"
+    }
+    to {
+        image = "gabriellpa/dashboard-jobs"
+    }
+    container {
+        jvmFlags = ['-Xms512m', '-Xdebug']
+        mainClass = 'br.com.gabriellpa.dashboardjobs.DashboardJobsApplication'
+        args = []
+        ports = ['8080/tcp']
+    }
 }
